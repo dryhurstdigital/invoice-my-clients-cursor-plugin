@@ -5,9 +5,9 @@
  * Receives hook context via environment variables or stdin.
  */
 
-const timestamp = new Date().toISOString();
-const toolName = process.env.HOOK_TOOL_NAME || "unknown";
-const result = process.env.HOOK_RESULT || "unknown";
+const timestamp = new Date().toISOString()
+const toolName = process.env.HOOK_TOOL_NAME || 'unknown'
+const result = process.env.HOOK_RESULT || 'unknown'
 
-console.log(`[IMC Audit] ${timestamp} | Tool: ${toolName} | Result: ${result}`);
-process.exit(0);
+console.log(`[IMC Audit] ${timestamp} | Tool: ${toolName} | Result: ${result}`)
+process.exit(0)

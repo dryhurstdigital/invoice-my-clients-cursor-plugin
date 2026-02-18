@@ -20,6 +20,7 @@ description: Generate reports and summaries from invoice data. Use when the user
 #### Step 1: Fetch All Invoices
 
 Call `get_invoices` to retrieve all invoices. Paginate if necessary using `nextToken`:
+
 ```
 { "limit": 100 }
 ```
@@ -29,6 +30,7 @@ Continue fetching pages until all invoices are retrieved.
 #### Step 2: Filter and Categorize
 
 Categorize invoices by status:
+
 - **Unpaid/Sent**: Invoices sent but not yet paid
 - **Partially Paid**: Invoices with partial payments
 - **Overdue**: Sent invoices past their due date
@@ -38,6 +40,7 @@ Categorize invoices by status:
 #### Step 3: Calculate Totals
 
 For each category, calculate:
+
 - Number of invoices
 - Total amount
 - Average invoice amount
@@ -117,6 +120,7 @@ Monthly Average: $11,100.00
 #### Step 1: Identify Overdue
 
 Fetch invoices and identify those with:
+
 - Status = SENT
 - Payment status = UNPAID or PARTIALLY_PAID
 - Due date in the past

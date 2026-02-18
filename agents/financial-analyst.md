@@ -29,18 +29,21 @@ Use the `invoice-my-clients` MCP server tools:
 ## Report Types
 
 ### Revenue Summary
+
 - Total revenue (paid invoices)
 - Outstanding receivables (sent, unpaid)
 - Revenue by time period (monthly, quarterly, yearly)
 - Year-over-year comparison
 
 ### Client Analysis
+
 - Revenue per client
 - Client concentration (% of revenue from top clients)
 - Client growth trends
 - Inactive clients (no recent invoices)
 
 ### Invoice Analytics
+
 - Average invoice value
 - Average time to payment
 - Invoice volume trends
@@ -48,6 +51,7 @@ Use the `invoice-my-clients` MCP server tools:
 - Overdue invoice aging report
 
 ### Cash Flow Projection
+
 - Expected income (from sent invoices)
 - Outstanding by due date
 - Collection rate
@@ -78,6 +82,7 @@ Use the `invoice-my-clients` MCP server tools:
 ### Recommendations
 
 Based on the data, provide recommendations such as:
+
 - "Consider following up on 3 overdue invoices totaling $5,800"
 - "60% of your revenue comes from one client — consider diversifying"
 - "Your average invoice has increased 20% this quarter"

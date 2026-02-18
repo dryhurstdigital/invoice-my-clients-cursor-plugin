@@ -17,8 +17,8 @@ Display your client directory from Invoice My Clients.
 
 3. Present results in a table:
 
-   | # | Name | Email | Phone | City |
-   |---|------|-------|-------|------|
+   | #   | Name | Email | Phone | City |
+   | --- | ---- | ----- | ----- | ---- |
 
 4. If there are more results, offer to load the next page.
 

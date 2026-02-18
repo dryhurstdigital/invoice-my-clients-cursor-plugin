@@ -14,11 +14,11 @@ description: Create a new invoice for a client with line items using the Invoice
 
 ## Prerequisites
 
-Before creating an invoice, gather the following information from the user. Required items are marked with *.
+Before creating an invoice, gather the following information from the user. Required items are marked with \*.
 
-- **Client name*** - Who is being invoiced
-- **Line item description*** - What work was performed
-- **Quantity*** - Hours, units, or count
+- **Client name\*** - Who is being invoiced
+- **Line item description\*** - What work was performed
+- **Quantity\*** - Hours, units, or count
 - **Rate** - Per-unit price (defaults to user's hourly rate if omitted)
 - **Invoice name** - Title for the invoice (defaults to "INVOICE")
 - **Notes** - Any additional notes for the invoice
@@ -28,6 +28,7 @@ Before creating an invoice, gather the following information from the user. Requ
 ### Step 1: Check User Settings
 
 Call `get_user_settings` to retrieve:
+
 - Default hourly rate (used if no rate specified)
 - Invoice prefix and numbering
 - Tax percentage
@@ -39,6 +40,7 @@ Present a brief summary: "Your default rate is $X/hr, tax is Y%, payment terms a
 ### Step 2: Find or Confirm the Client
 
 If the user provided a client name:
+
 1. Call `search_businesses` with the client name to check for existing records.
 2. If an exact match is found, confirm: "I found [Client Name] in your records. Creating invoice for them."
 3. If multiple matches are found, present options and ask the user to choose.
@@ -49,6 +51,7 @@ If the user wants a new client, use the `manage-clients` skill to create one fir
 ### Step 3: Create the Invoice
 
 Call `create_invoice` with:
+
 ```
 {
   "businessName": "<client name>",
@@ -61,6 +64,7 @@ Call `create_invoice` with:
 ```
 
 The system will:
+
 - Auto-generate an invoice number (e.g., INV000042)
 - Set the date to today
 - Set status to DRAFT
@@ -70,6 +74,7 @@ The system will:
 ### Step 4: Add Additional Line Items
 
 If the user has multiple line items, add each with `create_invoice_item`:
+
 ```
 {
   "invoiceId": "<invoice ID from step 3>",

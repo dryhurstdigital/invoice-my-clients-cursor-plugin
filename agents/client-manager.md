@@ -54,6 +54,7 @@ Use the `invoice-my-clients` MCP server tools:
 ### Client Analysis
 
 When asked about client relationships:
+
 1. Fetch client record with `get_business`.
 2. Fetch invoices with `get_invoices` and filter by client.
 3. Calculate:
@@ -64,6 +65,7 @@ When asked about client relationships:
    - Most recent invoice date
 
 Present a relationship summary:
+
 ```
 Client: Acme Corporation
 Since: March 2025
