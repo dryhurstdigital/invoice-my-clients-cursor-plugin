@@ -1,0 +1,53 @@
+---
+description: Best practices for financial operations like tax calculations, discounts, and payment terms. Apply when handling financial aspects of invoices.
+alwaysApply: false
+---
+
+# Financial Best Practices
+
+When handling financial aspects of invoices through Invoice My Clients, follow these guidelines:
+
+## Tax Handling
+
+- Tax percentage is configured in user settings. Retrieve with `get_user_settings`.
+- Individual line items can be marked as taxable or non-taxable via `invoiceItemTaxable`.
+- Tax is calculated on the subtotal of taxable items only.
+- Never assume a tax rate; always check user settings first.
+
+## Payment Terms
+
+- Payment terms come from user settings (e.g., Net 30).
+- Due dates are calculated from the invoice date based on the configured payment terms.
+- Do not override payment terms unless the user explicitly requests it.
+
+## Rates
+
+- Default hourly rate comes from user settings.
+- When creating invoice items without specifying a rate, the system defaults to the user's hourly rate.
+- Always confirm rates with the user when they differ significantly from the default.
+
+## Discounts
+
+- Discounts can be percentage-based or monetary amounts.
+- Apply discounts at the invoice level, not the item level.
+- Clearly show the discount amount and the resulting total.
+
+## Interest
+
+- Interest on overdue payments is configured in user settings.
+- Interest can be calculated monthly or weekly.
+- Always inform the user about interest implications when working with overdue invoices.
+
+## Multi-Step Financial Operations
+
+- When performing bulk operations (e.g., creating multiple invoices), always:
+  1. Retrieve user settings once at the start.
+  2. Confirm the operation plan with the user.
+  3. Execute operations sequentially, reporting progress.
+  4. Provide a final summary of all operations.
+
+## Early Payment Discounts
+
+- Configurable at global, client, and invoice levels.
+- When creating invoices, check if the client has specific early payment discount settings.
+- Mention early payment discounts when relevant.

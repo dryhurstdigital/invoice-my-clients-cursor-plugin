@@ -1,0 +1,39 @@
+---
+description: Guidelines for managing client/business records through the Invoice My Clients MCP tools. Apply when creating, updating, or querying clients.
+alwaysApply: false
+---
+
+# Client Management
+
+When working with clients (called "businesses" in the API) through the Invoice My Clients MCP server, follow these conventions:
+
+## Creating Clients
+
+- Use `create_business` to create a new client record.
+- At minimum, provide `businessName`. All other fields are optional but recommended.
+- Check for existing clients before creating duplicates. Use `search_businesses` or `get_businesses` to search first.
+- When the user provides a full address, map it to the individual fields: `businessStreetAddress1`, `businessStreetAddress2`, `businessCity`, `businessState`, `businessPostCode`.
+- Default `preferredLanguage` to `en-US` unless the user specifies otherwise. `es-Mx` is also supported.
+
+## Updating Clients
+
+- Use `update_business` with only the fields that need changing.
+- Always retrieve the client first with `get_business` to confirm the correct record before updating.
+
+## Client Lookup
+
+- Use `search_businesses` for fuzzy free-text search across name, email, and city.
+- Use `get_businesses` with pagination for listing all clients.
+- When a user refers to a client by name, search first and confirm the match before taking action.
+
+## Client-Invoice Relationship
+
+- Clients are linked to invoices through the invoice's client fields (e.g., `clientName`, `clientEmail`).
+- When creating an invoice for a client, pass `businessName` or `businessEmail` to `create_invoice`. The system auto-populates the invoice's client fields from the matched business record.
+- To see all invoices for a client, use `get_invoices` and filter by client name.
+
+## Data Quality
+
+- Encourage users to provide email addresses for clients to enable reliable matching.
+- Phone numbers should include area codes.
+- Client IDs are UUIDs; always retrieve them from the API, never fabricate them.

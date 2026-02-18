@@ -1,0 +1,25 @@
+{
+  "name": "invoice-my-clients",
+  "version": "1.0.0",
+  "description": "Manage invoices, clients, and payments directly from Cursor. Create, search, and update invoices using natural language through the Invoice My Clients platform.",
+  "author": {
+    "name": "Invoice My Clients",
+    "email": "support@invoicemyclients.com"
+  },
+  "homepage": "https://invoicemyclients.com",
+  "repository": "https://github.com/invoicemyclients/invoice-my-clients-cursor-plugin",
+  "license": "MIT",
+  "keywords": [
+    "invoicing",
+    "billing",
+    "freelancer",
+    "payments",
+    "clients",
+    "business",
+    "finance",
+    "accounting",
+    "mcp",
+    "invoice-management"
+  ],
+  "logo": "assets/logo.svg"
+}

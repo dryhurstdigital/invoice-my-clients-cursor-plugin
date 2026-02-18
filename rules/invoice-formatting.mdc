@@ -1,0 +1,54 @@
+---
+description: Rules for formatting and presenting invoice data to users. Apply when displaying invoice information in responses.
+alwaysApply: false
+---
+
+# Invoice Formatting
+
+When presenting invoice data to the user, follow these formatting conventions:
+
+## Currency
+
+- Format monetary values with two decimal places and appropriate currency symbols (e.g., `$1,250.00`).
+- When calculating totals, multiply quantity by rate for each line item.
+- Show subtotal, tax (if applicable), and total separately.
+- If a discount is present, show it as a separate line.
+
+## Dates
+
+- Present dates in a human-readable format (e.g., "February 17, 2026").
+- For due dates, also mention how many days from now (e.g., "Due: March 19, 2026 (30 days)").
+
+## Invoice Status
+
+- Use clear labels for statuses:
+  - `DRAFT` - "Draft" (not yet sent)
+  - `SENT` - "Sent" (awaiting payment)
+  - `VOIDED` - "Voided" (cancelled)
+  - `CANCELLED_REBILLED` - "Cancelled & Rebilled"
+  - `DELETED` - "Deleted"
+- For payment statuses:
+  - `PAID` - "Paid"
+  - `PARTIALLY_PAID` - "Partially Paid"
+  - `UNPAID` - "Unpaid"
+  - `PROCESSING` - "Processing"
+
+## Summaries
+
+- When listing multiple invoices, present them in a table format:
+  | Invoice # | Client | Status | Total | Date |
+- Sort by date (newest first) unless the user requests otherwise.
+- Include pagination info if there are more results (e.g., "Showing 10 of 45 invoices").
+
+## Line Items
+
+- Present line items in a clear table:
+  | Description | Qty | Rate | Amount |
+- Show the calculated amount (qty × rate) for each line.
+- Include a total row at the bottom.
+
+## Confirmations
+
+- After creating or updating an invoice, confirm the action with a summary.
+- Include the invoice number, client name, and key details in the confirmation.
+- Provide a link to view the invoice in the app when possible.

@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "invoice-my-clients": {
+      "url": "${IMC_MCP_SERVER_URL:-https://mcp.invoicemyclients.com/mcp}",
+      "headers": {
+        "Authorization": "Bearer ${IMC_API_KEY}"
+      }
+    }
+  }
+}

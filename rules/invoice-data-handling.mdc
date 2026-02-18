@@ -1,0 +1,48 @@
+---
+description: Guidelines for handling invoice data through the Invoice My Clients MCP tools. Apply when creating, updating, or querying invoices.
+alwaysApply: false
+---
+
+# Invoice Data Handling
+
+When working with invoices through the Invoice My Clients MCP server, follow these conventions:
+
+## Invoice Creation
+
+- Always create invoices in `DRAFT` status first. Never create invoices directly as `SENT`.
+- When creating an invoice with a client, prefer using `businessName` to match an existing client. Fall back to `businessEmail` if the name is ambiguous.
+- If the MCP server returns a disambiguation prompt (multiple matching clients), present the options to the user before proceeding.
+- If the MCP server returns a fuzzy-match confirmation, confirm with the user before accepting the match.
+- Include at least one invoice item when creating an invoice. Use `invoiceItemDescription`, `invoiceItemQuantity`, and `invoiceItemRate` parameters on `create_invoice` for the first line item.
+- If the user does not specify a rate, omit `invoiceItemRate` to let the system default to the user's configured hourly rate.
+
+## Invoice Numbers
+
+- Invoice numbers are auto-generated. Never ask the user to provide one.
+- The format is determined by the user's settings (prefix + padded number, e.g., `INV000042`).
+- To look up an invoice, use `get_invoice` with the `invoiceNumber` parameter. The system supports exact, case-insensitive, partial, and fuzzy matching.
+
+## Invoice Updates
+
+- When updating an invoice, only include the fields that are changing. Do not re-send unchanged fields.
+- To reassign a client on an existing invoice, pass `businessName` or `businessEmail` to `update_invoice`.
+- To archive an invoice, use `update_invoice` with `isArchived: true`.
+
+## Invoice Items
+
+- After creating an invoice, add additional line items with `create_invoice_item`.
+- Each item requires `invoiceId`, `invoiceItemDescription`, and `invoiceItemQuantity`.
+- Use `get_invoice_items` to list all items on an invoice before modifying them.
+- Delete items with `delete_invoice_item` using the item's `id`.
+
+## Data Integrity
+
+- Always verify an invoice exists before attempting to update it.
+- When working with multiple invoices, paginate results using the `nextToken` parameter from `get_invoices`.
+- Invoice IDs are UUIDs. Never fabricate an ID; always retrieve it from the API.
+
+## Search
+
+- Use `search_invoices` for free-text fuzzy search across invoice number, client name, and invoice name.
+- Use `get_invoices` with filters for structured queries.
+- Present search results clearly, including invoice number, client name, status, and total.

@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": "node ./scripts/check-connection.js",
+        "description": "Verify Invoice My Clients API connection on session start"
+      }
+    ],
+    "afterMCPExecution": [
+      {
+        "command": "node ./scripts/log-mcp-usage.js",
+        "matcher": "invoice-my-clients",
+        "description": "Log MCP tool usage for audit purposes"
+      }
+    ]
+  }
+}
