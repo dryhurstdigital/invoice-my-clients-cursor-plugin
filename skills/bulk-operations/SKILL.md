@@ -20,6 +20,7 @@ description: Perform bulk invoice operations like creating multiple invoices, ad
 #### Step 1: Parse the Work Log
 
 Accept work entries in various formats:
+
 - Plain text list
 - CSV data
 - Markdown table
@@ -42,6 +43,7 @@ For each unique client, call `search_businesses` to verify they exist. Report an
 #### Step 5: Confirm Plan
 
 Present the plan before executing:
+
 ```
 Bulk Invoice Plan
 ==================
@@ -63,6 +65,7 @@ Proceed? (yes/no)
 #### Step 6: Execute
 
 For each invoice:
+
 1. Call `create_invoice` with the first line item.
 2. Call `create_invoice_item` for each additional line item.
 3. Report progress: "Created invoice 1/2: INV000042 for Acme Corp"
@@ -94,6 +97,7 @@ Extract line items from user input.
 #### Step 3: Add Items Sequentially
 
 For each item, call `create_invoice_item`:
+
 ```
 {
   "invoiceId": "<invoice ID>",

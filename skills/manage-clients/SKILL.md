@@ -21,23 +21,24 @@ description: Create, update, search, and manage client/business records in Invoi
 
 Collect client details from the user. Only `businessName` is required:
 
-| Field | Required | Example |
-|-------|----------|---------|
-| Business Name | Yes | "Acme Corporation" |
-| Email | No | "billing@acme.com" |
-| Phone | No | "555-123-4567" |
-| Mobile | No | "555-987-6543" |
-| Street Address | No | "123 Main St" |
-| Suite/Unit | No | "Suite 400" |
-| City | No | "New York" |
-| State | No | "NY" |
-| Postal Code | No | "10001" |
-| Language | No | "en-US" or "es-Mx" |
-| Accept Online Payments | No | true/false |
+| Field                  | Required | Example            |
+| ---------------------- | -------- | ------------------ |
+| Business Name          | Yes      | "Acme Corporation" |
+| Email                  | No       | "billing@acme.com" |
+| Phone                  | No       | "555-123-4567"     |
+| Mobile                 | No       | "555-987-6543"     |
+| Street Address         | No       | "123 Main St"      |
+| Suite/Unit             | No       | "Suite 400"        |
+| City                   | No       | "New York"         |
+| State                  | No       | "NY"               |
+| Postal Code            | No       | "10001"            |
+| Language               | No       | "en-US" or "es-Mx" |
+| Accept Online Payments | No       | true/false         |
 
 #### Step 2: Check for Duplicates
 
 Before creating, search for existing clients:
+
 1. Call `search_businesses` with the business name.
 2. If matches are found, present them: "I found a similar client: [name]. Is this the same business, or should I create a new record?"
 3. If no matches, proceed to creation.
@@ -45,6 +46,7 @@ Before creating, search for existing clients:
 #### Step 3: Create the Client
 
 Call `create_business` with the collected fields:
+
 ```
 {
   "businessName": "Acme Corporation",
@@ -60,6 +62,7 @@ Call `create_business` with the collected fields:
 #### Step 4: Confirm
 
 Present the created record:
+
 ```
 Client Created!
 
@@ -72,6 +75,7 @@ Address: 123 Main St, New York, NY 10001
 ### Searching for Clients
 
 Use `search_businesses` for fuzzy text search:
+
 ```
 { "query": "acme" }
 ```
@@ -79,9 +83,10 @@ Use `search_businesses` for fuzzy text search:
 This searches across business name, email, and city. Present results in a table:
 
 | Name | Email | City | Phone |
-|------|-------|------|-------|
+| ---- | ----- | ---- | ----- |
 
 For a full list, use `get_businesses` with pagination:
+
 ```
 { "limit": 20 }
 ```
@@ -101,6 +106,7 @@ Present the found record and confirm: "Is this the client you want to update?"
 #### Step 3: Apply Updates
 
 Call `update_business` with only the changed fields:
+
 ```
 {
   "id": "<business ID>",

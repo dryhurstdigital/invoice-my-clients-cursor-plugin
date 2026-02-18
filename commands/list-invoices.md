@@ -21,8 +21,8 @@ Display a list of your invoices from Invoice My Clients.
 
 3. Present results in a table:
 
-   | # | Invoice Number | Client | Status | Total | Date |
-   |---|----------------|--------|--------|-------|------|
+   | #   | Invoice Number | Client | Status | Total | Date |
+   | --- | -------------- | ------ | ------ | ----- | ---- |
 
 4. If there are more results (nextToken present), offer to load more.
 
