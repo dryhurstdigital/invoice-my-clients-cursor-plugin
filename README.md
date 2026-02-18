@@ -9,6 +9,7 @@ Manage invoices, clients, and payments directly from Cursor. Create, search, and
 The plugin connects to the Invoice My Clients MCP server, giving Cursor's AI agent access to 15+ invoice management tools:
 
 **Invoice Operations**
+
 - `create_invoice` — Create invoices with auto-generated numbers, client matching, and line items
 - `update_invoice` — Modify invoice details, reassign clients, archive invoices
 - `get_invoice` — Look up by ID or invoice number (supports fuzzy matching)
@@ -16,6 +17,7 @@ The plugin connects to the Invoice My Clients MCP server, giving Cursor's AI age
 - `search_invoices` — Free-text fuzzy search across invoices
 
 **Client Management**
+
 - `create_business` — Add new client records with full contact details
 - `update_business` — Update client information
 - `get_business` — Retrieve client details
@@ -23,17 +25,20 @@ The plugin connects to the Invoice My Clients MCP server, giving Cursor's AI age
 - `search_businesses` — Fuzzy search across clients
 
 **Line Items**
+
 - `create_invoice_item` — Add line items to invoices
 - `update_invoice_item` — Modify existing items
 - `get_invoice_items` — List items on an invoice
 - `delete_invoice_item` — Remove a line item
 
 **Account**
+
 - `get_user_settings` — Retrieve your business settings, rates, and preferences
 
 ### AI Rules
 
 Bundled rules teach Cursor's agent how to properly handle:
+
 - Invoice data creation and updates
 - Client record management and deduplication
 - Financial formatting (currency, dates, statuses)
@@ -43,37 +48,37 @@ Bundled rules teach Cursor's agent how to properly handle:
 
 Five specialized skills for complex multi-step workflows:
 
-| Skill | Description |
-|-------|-------------|
-| `create-invoice` | End-to-end invoice creation with client matching and line items |
-| `manage-clients` | Client CRUD with duplicate detection and data quality checks |
+| Skill               | Description                                                       |
+| ------------------- | ----------------------------------------------------------------- |
+| `create-invoice`    | End-to-end invoice creation with client matching and line items   |
+| `manage-clients`    | Client CRUD with duplicate detection and data quality checks      |
 | `invoice-reporting` | Generate financial reports, revenue summaries, and overdue alerts |
-| `bulk-operations` | Create multiple invoices from work logs, batch import clients |
-| `setup-account` | First-time setup, API key configuration, connection verification |
+| `bulk-operations`   | Create multiple invoices from work logs, batch import clients     |
+| `setup-account`     | First-time setup, API key configuration, connection verification  |
 
 ### Custom Agents
 
 Three purpose-built agents optimized for different tasks:
 
-| Agent | Description |
-|-------|-------------|
+| Agent               | Description                                                |
+| ------------------- | ---------------------------------------------------------- |
 | `invoice-assistant` | General-purpose invoicing agent for all invoice operations |
-| `client-manager` | Specialized in client relationships and data quality |
-| `financial-analyst` | Revenue analysis, cash flow, and financial reporting |
+| `client-manager`    | Specialized in client relationships and data quality       |
+| `financial-analyst` | Revenue analysis, cash flow, and financial reporting       |
 
 ### Commands
 
 Seven quick-action commands:
 
-| Command | Description |
-|---------|-------------|
-| `/create-invoice` | Create a new invoice |
-| `/find-invoice` | Look up a specific invoice |
-| `/list-invoices` | Browse and search invoices |
-| `/create-client` | Add a new client |
-| `/list-clients` | Browse and search clients |
-| `/invoice-summary` | Quick financial overview |
-| `/view-settings` | View account configuration |
+| Command            | Description                |
+| ------------------ | -------------------------- |
+| `/create-invoice`  | Create a new invoice       |
+| `/find-invoice`    | Look up a specific invoice |
+| `/list-invoices`   | Browse and search invoices |
+| `/create-client`   | Add a new client           |
+| `/list-clients`    | Browse and search clients  |
+| `/invoice-summary` | Quick financial overview   |
+| `/view-settings`   | View account configuration |
 
 ### Hooks
 
@@ -92,7 +97,7 @@ Seven quick-action commands:
 1. Log in to [Invoice My Clients](https://app.invoicemyclients.com)
 2. Go to **Settings** → **Developer**
 3. Click **Generate API Key**
-4. Copy the key (starts with `imc_live_` or `imc_dev_`)
+4. Copy the key (starts with `imc_live_`)
 
 ### Configure the Plugin
 
@@ -121,6 +126,7 @@ Use the `/view-settings` command or ask the agent:
 > "Invoice Acme Corp for 40 hours of web development at $150/hr"
 
 The agent will:
+
 1. Check your settings for defaults
 2. Find "Acme Corp" in your clients
 3. Create a draft invoice with a line item
@@ -129,6 +135,7 @@ The agent will:
 ### Bulk Invoice from Work Log
 
 > "Create invoices from this work log:
+>
 > - Acme Corp: 20 hrs backend dev, 10 hrs code review
 > - TechStart: 15 hrs UI design
 > - Design Co: 8 hrs consultation"
@@ -218,13 +225,13 @@ All data stays in your Invoice My Clients account. The plugin is a communication
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| "Authentication failed" | Check your `IMC_API_KEY` is correct and not expired |
-| "Connection refused" | Verify `IMC_MCP_SERVER_URL` is reachable |
-| "Tools not appearing" | Restart Cursor, check plugin is installed and MCP server is enabled |
-| "API key revoked" | Generate a new key at Settings → Developer |
-| "Rate limit exceeded" | Wait a moment and retry |
+| Issue                   | Solution                                                            |
+| ----------------------- | ------------------------------------------------------------------- |
+| "Authentication failed" | Check your `IMC_API_KEY` is correct and not expired                 |
+| "Connection refused"    | Verify `IMC_MCP_SERVER_URL` is reachable                            |
+| "Tools not appearing"   | Restart Cursor, check plugin is installed and MCP server is enabled |
+| "API key revoked"       | Generate a new key at Settings → Developer                          |
+| "Rate limit exceeded"   | Wait a moment and retry                                             |
 
 ## Support
 
